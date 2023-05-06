@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nathanchase/nuxt-dayjs-module',
   ],
-  ssr: false,
+  ssr: true,
   css: [
     "vuetify/styles",
     "@mdi/font/css/materialdesignicons.css",
