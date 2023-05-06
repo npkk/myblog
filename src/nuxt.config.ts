@@ -27,12 +27,9 @@ export default defineNuxtConfig({
       }
     },
   },
-  // dayjs: {
-  //   plugins: [
-  //     'duration',
-  //     'relativeTime',
-  //     'advancedFormat',
-  //     'weekday'
-  //   ]
-  // }
+  router: {
+    options: {
+      strict: true,
+    }
+  }
 })
