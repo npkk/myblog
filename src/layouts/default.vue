@@ -7,7 +7,7 @@
           </v-app-bar-nav-icon>
           <v-app-bar-title class="d-flex">
             <div class="appbar-title" @click.native="navigateTo('/')">
-              限界ブログ
+              sigsegvvv's log
             </div>
             <v-spacer />
           </v-app-bar-title>

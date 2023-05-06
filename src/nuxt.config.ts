@@ -1,12 +1,14 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  modules: ['@nuxt/content'],
-  typescript: {
-    shim: false,
-  },
+  modules: [
+    '@nuxt/content',
+    '@nathanchase/nuxt-dayjs-module',
+  ],
   ssr: false,
-  css: ["vuetify/styles",
-    "@mdi/font/css/materialdesignicons.css",],
+  css: [
+    "vuetify/styles",
+    "@mdi/font/css/materialdesignicons.css",
+  ],
   build: {
     transpile: ["vuetify"],
   },
@@ -24,5 +26,13 @@ export default defineNuxtConfig({
         usePolling: true,
       }
     },
-  }
+  },
+  // dayjs: {
+  //   plugins: [
+  //     'duration',
+  //     'relativeTime',
+  //     'advancedFormat',
+  //     'weekday'
+  //   ]
+  // }
 })
