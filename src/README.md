@@ -1,20 +1,18 @@
-# Content v2 Minimal Starter
+## MyBlog
 
-Look at the [Content documentation](https://content-v2.nuxtjs.org/) to learn more.
+my daily blog spot
+
+## TODO
+
+- make querying posts function
+- make posts to submodule
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# yarn
 yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install
 ```
 
 ## Development Server
@@ -22,7 +20,7 @@ pnpm install
 Start the development server on http://localhost:3000
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 ## Production
