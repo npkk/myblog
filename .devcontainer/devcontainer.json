@@ -16,7 +16,8 @@
 		"vscode": {
 			"extensions": [
 				"Vue.vscode-typescript-vue-plugin",
-				"Vue.volar"
+				"Vue.volar",
+				"github.vscode-github-actions"
 			],
 			"settings": {
 				"[markdown]": {
