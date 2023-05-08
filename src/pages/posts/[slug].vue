@@ -3,11 +3,12 @@
         <span class="title ">{{ post.title }}</span>
     </div>
     <div class="created_at">
-        <v-icon :size="20">mdi-update</v-icon>
-        {{ post.created_at }}
+        <v-icon :size="20">mdi-upload</v-icon>
+        {{ $dayjs(post.created_at).format('YYYY/MM/DD') }}
     </div>
-    <div class="updated_at" v-if="post.updated_at">
-        {{ post.updated_at }}
+    <div class="updated_at" v-if="post.updated_at !== post.created_at">
+        <v-icon :size="20">mdi-update</v-icon>
+        {{ $dayjs(post.updated_at).format('YYYY/MM/DD') }}
     </div>
     <div class="d-inline-flex align-center py-2 tags">
         <div>tags: </div>

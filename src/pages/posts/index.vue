@@ -10,13 +10,13 @@
                                 {{ post.title }}
                             </div>
                             <v-spacer />
-                            <div>
+                            <div class="px-1">
                                 <v-icon :size="20">mdi-upload</v-icon>
                                 <span class="created_at">
                                     {{ $dayjs(post.created_at).format('YYYY/MM/DD') }}
                                 </span>
                             </div>
-                            <div v-if="post.updated_at">
+                            <div class="px-1" v-if="post.updated_at !== post.created_at">
                                 <v-icon :size="20">mdi-update</v-icon>
                                 <span class="updated_at">
                                     {{ $dayjs(post.updated_at).format('YYYY/MM/DD') }}
