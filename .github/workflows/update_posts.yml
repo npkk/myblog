@@ -28,7 +28,7 @@ jobs:
         id: update
         run: |
           git submodule sync --recursive
-          git submodule update --init --force --recursive
+          git submodule update --init --force --recursive --remote
       - name: Check diff
         id: diff
         run: echo "::set-output name=diff::$(git status -s)"
