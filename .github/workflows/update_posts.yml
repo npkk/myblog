@@ -17,17 +17,18 @@ jobs:
       diff: ${{ steps.diff.outputs.diff }}
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: recursive
-      - name: Update submodule
-        id: update
+      - name: SSH setting
         env: 
           SSH_SECRET: ${{ secrets.SSH_SECRET }}
-          GIT_SSH_COMMAND: ssh -i ~/ssh_secret
         run: |
-          echo "$SSH_SECRET" > ~/ssh_secret
-          chmod 600 ~/ssh_secret
-          git submodule update --remote --recursive
+          mkdir -p /home/runner/.ssh/
+          echo -e "$SSH_SECRET" > /home/runner/.ssh/id_rsa
+          chmod 600 /home/runner/.ssh/id_rsa
+      - name: Update submodule
+        id: update
+        run: |
+          git submodule sync --recursive
+          git submodule update --init --force --recursive
       - name: Check diff
         id: diff
         run: echo "::set-output name=diff::$(git status -s)"
