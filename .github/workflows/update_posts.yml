@@ -21,7 +21,13 @@ jobs:
           submodules: recursive
       - name: Update submodule
         id: update
-        run: git submodule update --remote --recursive
+        env: 
+          SSH_SECRET: ${{ secrets.SSH_SECRET }}
+          GIT_SSH_COMMAND: ssh -i ~/ssh_secret
+        run: |
+          echo "$SSH_SECRET" > ~/ssh_secret
+          chmod 600 ~/ssh_secret
+          git submodule update --remote --recursive
       - name: Check diff
         id: diff
         run: echo "::set-output name=diff::$(git status -s)"
