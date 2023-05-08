@@ -5,8 +5,8 @@ on:
   push:
     branches:
       - master
-  cron: |
-    0 * * * *
+  schedule: 
+    - cron: '0 * * * *'
 
 jobs:
   update-post:
@@ -27,14 +27,9 @@ jobs:
         run: echo "::set-output name=diff::$(git status -s)"
       - name: Add and commit files
         run: |
-          git add .
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git add .
           git commit -m "Update posts at $(date "+DATE: %Y-%m-%d TIME: %H:%M:%S")"
-        if: ${{ steps.diff.outputs.diff }}
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
+          git push origin HEAD:${GITHUB_REF}
         if: ${{ steps.diff.outputs.diff }}
