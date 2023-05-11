@@ -46,6 +46,7 @@
 const { data: posts } = await useAsyncData('posts', () => {
     return queryContent('posts')
         .where({ created_at: { $exists: true } })
+        .sort({ created_at: -1 })
         .find()
 })
 const nuxtApp = useNuxtApp()
